@@ -1,15 +1,19 @@
 .navbar {
+  position: relative;
   text-align: center;
   background-color: rgb(37, 161, 33);
   color: black;
   font-family: "Bungee", cursive;
   border-style: solid;
-  height: 100px;
+  min-height: 100px;
+  z-index: 2;
+
 }
 
 .body {
   background-color: rgb(152, 221, 150);
 }
+
 
 
 .welcomebar {
@@ -21,10 +25,7 @@
   border-style: solid;
   font-family: "Bungee", cursive;
   padding-bottom: 20px;
- 
 }
-
-
 
 .textarea {
   width: 300px;
@@ -34,23 +35,21 @@
   font-size: 16px;
   color: black;
   text-align: center;
-  
 }
 
-.submitbutton{
+.submitbutton {
   width: 100px;
   height: 40px;
   border: 3px solid #11122b;
   border-radius: 5px;
   background-color: rgb(238, 194, 18);
   font-size: 16px;
-  
 }
 
 .weatherdetails {
   margin-top: 2px;
-  width: 49%;
-  height: 200px;
+  min-width: 49%;
+  min-height: 200px;
   background-color: rgb(37, 161, 33);
   float: left;
   text-align: center;
@@ -61,12 +60,27 @@
 
 .coorddetails {
   margin-top: 2px;
-  width: 49%;
-  height: 200px;
+  min-width: 49%;
+  min-height: 200px;
   background-color: rgb(37, 161, 33);
   float: right;
   text-align: center;
   border-style: solid;
   margin: auto;
   font-family: "Bungee", cursive;
+}
+
+@media (max-width: 1033px) {
+  .navbar {
+    height: 80px;
+  }
+ 
+  .weatherdetails,
+  .coorddetails {
+    width: 100%;
+    float: none;
+    display: flex;
+    flex:column;
+  }
+ 
 }
