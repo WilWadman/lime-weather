@@ -23,15 +23,28 @@
 <body>
   <main style="margin: 1em;">
       <h3>Welcome to the weather information app!</h3>
-      <form action="/submit" method="post">
+       <form action="/submit" method="post">
         <input type="text" name="location" placeholder="Enter your location">
         <button type="submit" >Submit</button>
       </form>
        
         </div>
-
-        <div class="displayinfo">
-          
+        <% if (typeof data1 !== 'undefined') { %>
+          <div>
+            <h1>Weather for <%= data1.name %></h1>
+            <p>Temperature: <%= ((data1.main.temp - 273.15) * 1.8 + 32).toFixed(2) %>°F</p>
+            <p>Humidity: <%= data1.main.humidity %>%</p>
+            <p>Current Weather: <%= data1.weather[0].description %></p>
+          </div>
+          <% } %>
+          <% if (typeof data2 !== 'undefined' && data2.length > 0) { %>
+          <div>
+            <h1> GPS Coordinates for <%= data1.name %></h1>
+            <p>Longitude: <%= data2[0].lon %></p>
+            <p>Latitude: <%= data2[0].lat %></p>
+          </div>
+        <% } %>
+       
           
 </div>
       
