@@ -28,7 +28,6 @@
     </a>
 </header>
 
-
 <!-- body -->
 
 <body class="body">
@@ -44,17 +43,19 @@
       </form>
     </div>
     <br>
+    <% if (typeof errorMessage !== 'undefined') { %>
     <div class="errormessage">
       <%= errorMessage %>
     </div>
+    <% } %>
     <!-- conditional based on whether or not there is data present to prevent empty components from displaying-->
     <% if (typeof data1 !=='undefined' ) { %>
       <div class="weatherdetails">
         <h1>Weather for <%= data1.name %>
         </h1>
-        <p>Your Location's Temperature: <%= ((data1.main.temp - 273.15) * 1.8 + 32).toFixed(2) %>°F</p>
-        <p>Your Location's Humidity: <%= data1.main.humidity %>%</p>
-        <p>Your Location's Current Weather: <%= data1.weather[0].description %>
+        <p>Temperature: <%= ((data1.main.temp - 273.15) * 1.8 + 32).toFixed(2) %>°F</p>
+        <p>Humidity: <%= data1.main.humidity %>%</p>
+        <p>Current Weather Condtions: <%= data1.weather[0].description %>
         </p>
       </div>
       <% } %>
@@ -63,8 +64,8 @@
           <div class="coorddetails">
             <h1> GPS Coordinates for <%= data1.name %>
             </h1>
-            <p>Your Location's Longitude: <%= data2[0].lon %></p>
-            <p>Your Location's Latitude: <%= data2[0].lat %></p>
+            <p>Longitude: <%= data2[0].lon %></p>
+            <p>Latitude: <%= data2[0].lat %></p>
           </div>
           <% } %>
   </main>

@@ -25,7 +25,7 @@ app.post("/submit", (req, res) => {
   const apiKey = process.env.API_KEY;
   const location = req.body.location;
   const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
-  console.log(process.env);
+
   let data1;
   // using axios to perform the first api pull and declaring the variables for the second api pull to be used in the promise for the second api pull
   axios
@@ -47,8 +47,10 @@ app.post("/submit", (req, res) => {
     })
 
     .catch((error) => {
-      console.error(error);
-      res.render("index", { errorMessage: 'Your location was blank or does not exist, please try again!' });
+      res.render("index", {
+        errorMessage:
+          "Your location was blank or does not exist, please try again!",
+      });
     });
 });
 
