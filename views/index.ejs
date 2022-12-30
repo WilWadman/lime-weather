@@ -6,42 +6,58 @@
   
   
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
-  
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+      </style>
     <title>LimeWeather</title>
   </head>
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-success">
-    <a class="navbar-brand" href="/urls">Lime Spot Weather API Project </a>
+  <nav class="navbar">
+  
+    <a class="navcontent" href="/"><h1>Lime Spot Weather API Project</h1> </a>
+    <a class="gitaddress" href="https://github.com/WilWadman" target="_blank"><h1>Will's Github</h1> </a>
    
   </header>
 
 
 
-<body>
+<body class="body">
   <main style="margin: 1em;">
-      <h3>Welcome to the weather information app!</h3>
+    
+    <div class="welcomebar">
+      <h1>Welcome to the weather information app!</h1>
        <form action="/submit" method="post">
-        <input type="text" name="location" placeholder="Enter your location">
-        <button type="submit" >Submit</button>
+        <h1></h1><input class="textarea" type="text" name="location" placeholder="Please enter your location here"></h1>
+        <br>
+        <br>
+        <button class="submitbutton" type="submit" >Submit</button>
       </form>
+    </div>
+    <br>
+ 
        
         </div>
         <% if (typeof data1 !== 'undefined') { %>
-          <div>
+          <div class="allinfo">
+          <div class="weatherdetails">
             <h1>Weather for <%= data1.name %></h1>
-            <p>Temperature: <%= ((data1.main.temp - 273.15) * 1.8 + 32).toFixed(2) %>°F</p>
-            <p>Humidity: <%= data1.main.humidity %>%</p>
-            <p>Current Weather: <%= data1.weather[0].description %></p>
+            <p>Your Location's Temperature: <%= ((data1.main.temp - 273.15) * 1.8 + 32).toFixed(2) %>°F</p>
+            <p>Your Location's Humidity: <%= data1.main.humidity %>%</p>
+            <p>Your Location's Current Weather: <%= data1.weather[0].description %></p>
           </div>
           <% } %>
           <% if (typeof data2 !== 'undefined' && data2.length > 0) { %>
-          <div>
+          <div class="coorddetails">
             <h1> GPS Coordinates for <%= data1.name %></h1>
-            <p>Longitude: <%= data2[0].lon %></p>
-            <p>Latitude: <%= data2[0].lat %></p>
+            <p>Your Location's Longitude: <%= data2[0].lon %></p>
+            <p>Your Location's Latitude: <%= data2[0].lat %></p>
+          </div>
           </div>
         <% } %>
        

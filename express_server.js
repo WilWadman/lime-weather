@@ -9,8 +9,11 @@ const axios = require('axios');
 // dotenv used to hide openweather API key
 dotenv.config();
 
+//include body parser to help render API call responses
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+//include express static to access CSS file
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
