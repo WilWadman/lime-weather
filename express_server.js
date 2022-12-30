@@ -49,7 +49,7 @@ app.post("/submit", (req, res) => {
     .catch((error) => {
       res.render("index", {
         errorMessage:
-          "Your location was blank or does not exist, please try again!",
+          "Your location was submission blank or does not exist in the database, please try again!",
       });
     });
 });
