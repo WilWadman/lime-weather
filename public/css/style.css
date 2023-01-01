@@ -89,8 +89,7 @@
   .coorddetails {
     width: 100%;
     float: none;
-    display: flex;
-    flex:column;
-  }
+    margin-top: 8px;
+   }
  
 }
